@@ -6,6 +6,7 @@
 // Prototyping of function
 void sort(int arr[], int arrSize);
 void printArr(int arr[], int arrSize);
+void swap(int *a, int *b);
 
 // Main function
 int main() {
@@ -16,15 +17,20 @@ int main() {
 	return 0;
 }
 
+// swapping function
+void swap(int *a, int *b) {
+	int temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 // Main sorting array
 void sort(int arr[], int arrSize) {
 	int a=0, b=0, temp=0;
 	for(a=0;a<arrSize-1;a++) {
 		for(b=0;b<arrSize-a-1;b++) {
 			if(arr[b] > arr[b+1]) {
-				temp = arr[b+1];
-				arr[b+1] = arr[b];
-				arr[b] = temp;
+				swap(&arr[b], &arr[b+1]);
 			}
 		}
 	}
